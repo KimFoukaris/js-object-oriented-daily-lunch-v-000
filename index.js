@@ -62,7 +62,7 @@ class Customer {
     })
   }
   totalSpent(){
-    return this.deliveries().reduce(function(accumulator, currentValue, currentIndex, array) {
+    return this.meals().reduce(function(accumulator, currentValue, currentIndex, array) {
       return accumulator + currentValue;
     });
   }
