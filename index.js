@@ -41,6 +41,16 @@ class Customer {
       return delivery.customerId === this.id;
     })
   }
+  meals() {
+    let del = this.deliveries().map(function (delivery) {
+      return store.meals.find(function (meal) {
+        return meal.id === delivery.mealId;
+      })
+    })
+    return del.filter(function(elem, index, self) {
+      return index === self.indexOf(elem);
+    })
+  }
 }
 
 class Meal {
@@ -65,4 +75,5 @@ class Delivery {
     this.customerId = customerId;
     store.deliveries.push(this);
   }
+  
 }
