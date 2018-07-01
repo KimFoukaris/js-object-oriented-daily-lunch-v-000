@@ -17,6 +17,13 @@ class Neighborhood {
       return delivery.neighborhoodId === this.id;
     })
   }
+  customers() {
+    return this.deliveries().map(function (delivery) {
+      return store.customers.find(function (el) {
+        return el.id === delivery.customerId;
+      })
+    })
+  }
 }
 
 class Customer {
