@@ -62,6 +62,16 @@ class Meal {
       return delivery.mealId === this.id;
     })
   }
+  customers() {
+    let del = this.deliveries().map(function (delivery) {
+      return store.customers.find(function (customer) {
+        return customer.id === delivery.customerId;
+      })
+    })
+    return del.filter(function(elem, index, self) {
+      return index === self.indexOf(elem);
+    })
+  }
 }
 
 class Delivery {
