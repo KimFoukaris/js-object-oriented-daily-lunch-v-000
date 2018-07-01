@@ -90,6 +90,11 @@ class Meal {
       return index === self.indexOf(elem);
     })
   }
+  static byPrice() {
+    return store.meals.sort(function(num1, num2){
+      return num1-num2;
+    })
+  }
 }
 
 class Delivery {
