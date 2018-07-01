@@ -12,11 +12,13 @@ class Neighborhood {
     this.name = name;
     store.neighborhoods.push(this);
   }
+  
   deliveries() {
     return store.deliveries.filter(delivery => {
       return delivery.neighborhoodId === this.id;
     })
   }
+  
   customers() {
     let cust = this.deliveries().map(function (delivery) {
       return store.customers.find(function (customer) {
@@ -24,6 +26,17 @@ class Neighborhood {
       })
     })
     return cust.filter(function(elem, index, self) {
+      return index === self.indexOf(elem);
+    })
+  }
+
+  meals() {
+    let m = this.deliveries().map(function (delivery) {
+      return store.meals.find(function (meal) {
+        return meal.id === delivery.mealId;
+      })
+    })
+    return m.filter(function(elem, index, self) {
       return index === self.indexOf(elem);
     })
   }
