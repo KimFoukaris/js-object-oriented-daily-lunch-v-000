@@ -47,9 +47,6 @@ class Customer {
         return meal.id === delivery.mealId;
       })
     })
-    return del.filter(function(elem, index, self) {
-      return index === self.indexOf(elem);
-    })
   }
 }
 
@@ -75,5 +72,5 @@ class Delivery {
     this.customerId = customerId;
     store.deliveries.push(this);
   }
-  
+
 }
