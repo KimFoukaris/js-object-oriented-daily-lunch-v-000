@@ -42,7 +42,7 @@ class Customer {
     })
   }
   meals() {
-    let del = this.deliveries().map(function (delivery) {
+    return this.deliveries().map(function (delivery) {
       return store.meals.find(function (meal) {
         return meal.id === delivery.mealId;
       })
