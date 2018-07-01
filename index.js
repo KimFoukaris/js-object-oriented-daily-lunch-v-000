@@ -18,10 +18,13 @@ class Neighborhood {
     })
   }
   customers() {
-    return this.deliveries().map(function (delivery) {
+    let cust = this.deliveries().map(function (delivery) {
       return store.customers.find(function (customer) {
         return customer.id === delivery.customerId;
       })
+    })
+    return cust.filter(function(elem, index, self) {
+      return index === self.indexOf(elem);
     })
   }
 }
