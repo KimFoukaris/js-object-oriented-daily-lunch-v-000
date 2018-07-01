@@ -63,7 +63,7 @@ class Customer {
   }
   totalSpent(){
     return this.deliveries().reduce(function(total, price) {
-      total + price;
+      return total + price;
     })
   }
 }
