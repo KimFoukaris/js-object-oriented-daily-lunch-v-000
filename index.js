@@ -91,12 +91,9 @@ class Meal {
     })
   }
   static byPrice() {
-    let orderedMeals = store.meals.sort(function (a, b) {
+    return store.meals.sort(function (a, b) {
       return a.price - b.price;
     });
-    return orderedMeals.map(function(meal) {
-      return meal.name;
-    })
   }
 }
 
